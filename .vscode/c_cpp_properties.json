@@ -3,8 +3,7 @@
     {
       "name": "Win32",
       "includePath": [
-        "${workspaceFolder}/**",
-        "${workspaceFolder}/build/_deps/json-src/include"
+        "${workspaceFolder}/**"
       ],
       "defines": [
         "_DEBUG",
@@ -13,7 +12,8 @@
       ],
       "cStandard": "c17",
       "cppStandard": "c++17",
-      "intelliSenseMode": "windows-msvc-x64"
+      "intelliSenseMode": "windows-msvc-x64",
+      "compilerPath": "cl.exe"
     }
   ],
   "version": 4
