@@ -3,15 +3,16 @@ version: '3.8'
 services:
   auto-reply:
     build: .
-    container_name: message_auto_reply
+    container_name: whatsapp_auto_reply
     volumes:
-      - ./messages:/app/messages
-      - ./logs:/app/logs
+      - ./data:/app/data
       - ./models:/app/models
+      - ${HOME}/.wdm:/app/.wdm  # Chrome driver cache
     environment:
-      - CONFIDENCE_THRESHOLD=0.85
       - MODEL_FILE=/app/models/message_model.json
+      - LOG_FILE=/app/data/interactions.json
     stdin_open: true
     tty: true
-    restart: unless-stopped
-    command: python3 integration_daemon.py
+    restart: no
+    networks:
+      - default
